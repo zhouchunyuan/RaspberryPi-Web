@@ -1,0 +1,30 @@
+WSGIPythonPath /usr/share/pyplate/wsgi-scripts
+
+<VirtualHost *:80>
+
+    DocumentRoot /var/www
+
+    <Directory /var/www>
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+
+    <Directory /usr/lib/cgi-bin>
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+        Options +Indexes
+    </Directory>
+
+    ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+    <Directory "/usr/lib/cgi-bin">
+	AllowOverride None
+	Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+	Order allow,deny
+	Allow from all
+	AddHandler cgi-script .py
+    </Directory>
+    WSGIScriptAlias /pyplate /usr/share/pyplate/wsgi-scripts/index.py
+
+</VirtualHost>
