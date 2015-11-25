@@ -1,0 +1,20 @@
+/
+|--/etc
+|  |--/apache2
+|     |--/sites-available
+|        |
+|        |--default
+|
+|--/usr
+   |--/lib
+   |  |--/cgi-bin
+   |     |
+   |     |--delrequest.py
+   |     |--getrequest.py
+   |     |--hello.py
+   |
+   |--/share
+      |--/pyplate
+         |--/database
+            |
+            |--createRequestDB.py
